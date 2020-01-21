@@ -10,30 +10,22 @@ using Ksiegarnia.Models;
 
 namespace Ksiegarnia.Controllers
 {
-    public class BookController : Controller
+    public class OrderController : Controller
     {
-        private readonly BookContext _context;
-        private bool BookModelExists(int id)
-        {
-            return _context.Book.Any(e => e.Id == id);
-        }
+        private readonly OrderContext _context;
 
-        public BookController(BookContext context)
+        public OrderController(OrderContext context)
         {
             _context = context;
         }
 
-        public async Task<IActionResult> Index(string searchString)
+        // GET: Order
+        public async Task<IActionResult> Index()
         {
-            var books = from b in _context.Book select b;
-
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                books = books.Where(s => s.Title.Contains(searchString));
-            }
-            return View(await books.ToListAsync());
+            return View(await _context.Order.ToListAsync());
         }
 
+        // GET: Order/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -41,34 +33,39 @@ namespace Ksiegarnia.Controllers
                 return NotFound();
             }
 
-            var bookModel = await _context.Book.FirstOrDefaultAsync(m => m.Id == id);
-
-            if (bookModel == null)
+            var orderModel = await _context.Order
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (orderModel == null)
             {
                 return NotFound();
             }
 
-            return View(bookModel);
+            return View(orderModel);
         }
 
+        // GET: Order/Create
         public IActionResult Create()
         {
             return View();
         }
-        
+
+        // POST: Order/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(BookModel bookModel)
+        public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,Address,Street,City,Country,Email,PhoneNumber,Date,Done,Amount")] OrderModel orderModel)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(bookModel);
+                _context.Add(orderModel);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(bookModel);
+            return View(orderModel);
         }
 
+        // GET: Order/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -76,20 +73,22 @@ namespace Ksiegarnia.Controllers
                 return NotFound();
             }
 
-            var bookModel = await _context.Book.FindAsync(id);
-
-            if (bookModel == null)
+            var orderModel = await _context.Order.FindAsync(id);
+            if (orderModel == null)
             {
                 return NotFound();
             }
-            return View(bookModel);
+            return View(orderModel);
         }
 
+        // POST: Order/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, BookModel bookModel)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,Address,Street,City,Country,Email,PhoneNumber,Date,Done,Amount")] OrderModel orderModel)
         {
-            if (id != bookModel.Id)
+            if (id != orderModel.Id)
             {
                 return NotFound();
             }
@@ -98,12 +97,12 @@ namespace Ksiegarnia.Controllers
             {
                 try
                 {
-                    _context.Update(bookModel);
+                    _context.Update(orderModel);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!BookModelExists(bookModel.Id))
+                    if (!OrderModelExists(orderModel.Id))
                     {
                         return NotFound();
                     }
@@ -114,9 +113,10 @@ namespace Ksiegarnia.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(bookModel);
+            return View(orderModel);
         }
 
+        // GET: Order/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,31 +124,30 @@ namespace Ksiegarnia.Controllers
                 return NotFound();
             }
 
-            var bookModel = await _context.Book.FirstOrDefaultAsync(m => m.Id == id);
-
-            if (bookModel == null)
+            var orderModel = await _context.Order
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (orderModel == null)
             {
                 return NotFound();
             }
 
-            return View(bookModel);
+            return View(orderModel);
         }
 
+        // POST: Order/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var bookModel = await _context.Book.FindAsync(id);
-            _context.Book.Remove(bookModel);
+            var orderModel = await _context.Order.FindAsync(id);
+            _context.Order.Remove(orderModel);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-
-        public async Task<IActionResult> AddToBaset(int id)
+        private bool OrderModelExists(int id)
         {
-
-            return null;
+            return _context.Order.Any(e => e.Id == id);
         }
     }
 }

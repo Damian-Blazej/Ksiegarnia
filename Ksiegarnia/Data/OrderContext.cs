@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 
 namespace Ksiegarnia.Data
 {
-    public class BookContext : DbContext
+    public class OrderContext : DbContext
     {
-        public BookContext (DbContextOptions<BookContext> options) : base(options)
+        public OrderContext(DbContextOptions<OrderContext> options) : base(options)
         {
         }
-        public DbSet<BookModel> Book { get; set; }
+
+        public DbSet<OrderModel> Order { get; set; }
     }
 }

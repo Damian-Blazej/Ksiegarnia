@@ -142,3 +142,8 @@ D:\Ksiegarnia\Ksiegarnia\obj\Debug\netcoreapp3.0\Razor\Views\Book\Delete.cshtml.
 D:\Ksiegarnia\Ksiegarnia\obj\Debug\netcoreapp3.0\Razor\Views\Book\Details.cshtml.g.cs
 D:\Ksiegarnia\Ksiegarnia\obj\Debug\netcoreapp3.0\Razor\Views\Book\Edit.cshtml.g.cs
 D:\Ksiegarnia\Ksiegarnia\obj\Debug\netcoreapp3.0\Razor\Views\Book\Index.cshtml.g.cs
+D:\Ksiegarnia\Ksiegarnia\obj\Debug\netcoreapp3.0\Razor\Views\Order\Create.cshtml.g.cs
+D:\Ksiegarnia\Ksiegarnia\obj\Debug\netcoreapp3.0\Razor\Views\Order\Delete.cshtml.g.cs
+D:\Ksiegarnia\Ksiegarnia\obj\Debug\netcoreapp3.0\Razor\Views\Order\Details.cshtml.g.cs
+D:\Ksiegarnia\Ksiegarnia\obj\Debug\netcoreapp3.0\Razor\Views\Order\Edit.cshtml.g.cs
+D:\Ksiegarnia\Ksiegarnia\obj\Debug\netcoreapp3.0\Razor\Views\Order\Index.cshtml.g.cs

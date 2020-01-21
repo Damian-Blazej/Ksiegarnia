@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -16,6 +17,7 @@ namespace Ksiegarnia.Models
         public string Country { get; set; }
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
+        [DataType(DataType.Date)]
         public DateTime Date { get; set; }
         public bool Done { get; set; }
         public BookModel[] OrderedBooks { get; set; }

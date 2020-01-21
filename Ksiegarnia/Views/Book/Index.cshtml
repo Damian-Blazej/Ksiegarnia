@@ -12,7 +12,7 @@
 
 <form asp-controller="Book" asp-action="Index" method="get">
     <p>
-        Tytuł: <input type="text" name="title">
+        Tytuł: <input type="text" name="searchString">
         <input type="submit" value="Szukaj" />
     </p>
 </form>
@@ -60,7 +60,7 @@
                 <a asp-action="Edit" asp-route-id="@item.Id">Edycja</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Szczegóły</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Usuń</a> |
-                <a asp-action="AddToBasket" asp-route-id="@item.Id">Dodaj do koszyka</a>
+                <a asp-action="Index" asp-route-id="@item.Id">Dodaj do koszyka</a>
             </td>
         </tr>
 }
