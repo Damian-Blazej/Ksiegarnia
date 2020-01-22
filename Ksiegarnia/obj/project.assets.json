@@ -8746,11 +8746,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Ksiegarnia\\Ksiegarnia\\Ksiegarnia.csproj",
+      "projectUniqueName": "D:\\Q\\Ksiegarnia\\Ksiegarnia.csproj",
       "projectName": "Ksiegarnia",
-      "projectPath": "D:\\Ksiegarnia\\Ksiegarnia\\Ksiegarnia.csproj",
+      "projectPath": "D:\\Q\\Ksiegarnia\\Ksiegarnia.csproj",
       "packagesPath": "C:\\Users\\Goleniewski\\.nuget\\packages\\",
-      "outputPath": "D:\\Ksiegarnia\\Ksiegarnia\\obj\\",
+      "outputPath": "D:\\Q\\Ksiegarnia\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
